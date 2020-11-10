@@ -2,9 +2,19 @@
 #  
 
 def avg_temp():
+    with open('temps.txt') as file_object_3:
+        line_list = file_object_3.readlines()
 
+    list_length = len(line_list)
+    for i in range(list_length):
+        line_list[i] = line_list[i].rstrip()
+        line_list.remove('High Temps October 2020') # why not remove
 
-    return
+    length = len(line_list)
+    total = sum(line_list)
+    average = total/length
+
+    return average
 
 
 if __name__ == '__main__':
